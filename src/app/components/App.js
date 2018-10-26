@@ -42,10 +42,10 @@ class App extends Component {
     }
 
     fetchMovies = async () => {
-        const res = await fetch('http://www.omdbapi.com/?s=Batman&page=1&apikey=30730504')
+        const res = await fetch('https://www.omdbapi.com/?s=Batman&page=1&apikey=30730504')
         const data = await res.json();
         const movies = data.Search.map(async movie => {
-            const response = await fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=30730504`)
+            const response = await fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=30730504`)
             const movieData = await response.json()
             console.log(pick(movieData, ['imdbID', 'Title', 'Genre', 'Year', 'Runtime', 'Director']));
 
